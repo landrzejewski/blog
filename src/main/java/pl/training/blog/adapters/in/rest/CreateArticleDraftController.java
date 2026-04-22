@@ -15,20 +15,24 @@ class CreateArticleDraftController {
     }
 
     @PostMapping("article-drafts")
-    CreateArticleDraftResponse create() {
+    CreateArticleDraftResponse handle() {
         var articleDraft = useCase.handle();
-        return Mapper.map(articleDraft);
+        return CreateArticleDraftMapper.toResponse(articleDraft);
     }
 
 }
 
-record CreateArticleDraftResponse(String title, String content) {
+record CreateArticleDraftResponse(String id, String title, String content) {
 }
 
-class Mapper {
+class CreateArticleDraftMapper {
 
-    public static CreateArticleDraftResponse map(ArticleDraft draft) {
-        return new CreateArticleDraftResponse(draft.getTitle(), draft.getContent());
+    static CreateArticleDraftResponse toResponse(ArticleDraft draft) {
+        return new CreateArticleDraftResponse(
+                draft.getId().toString(),
+                draft.getTitle(),
+                draft.getContent()
+        );
     }
 
 }

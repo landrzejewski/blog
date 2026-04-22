@@ -2,10 +2,12 @@ package pl.training.blog.domain.model;
 
 public class ArticleDraft {
 
+    private ArticleDraftId id;
     private String title;
     private String content;
 
-    public ArticleDraft(String title, String content) {
+    public ArticleDraft(ArticleDraftId id, String title, String content) {
+        this.id = id;
         this.title = title;
         this.content = content;
     }
@@ -20,6 +22,10 @@ public class ArticleDraft {
 
     public boolean hasContent() {
         return !content.isBlank();
+    }
+
+    public ArticleDraftId getId() {
+        return id;
     }
 
 }

@@ -1,0 +1,24 @@
+package pl.training.blog.adapters.out.persistence;
+
+import pl.training.blog.common.Adapter;
+import pl.training.blog.domain.ArticleDraftWriter;
+import pl.training.blog.domain.model.ArticleDraft;
+
+@Adapter
+public class JpaArticleRepositoryAdapter implements ArticleDraftWriter {
+
+    private final JpaArticleRepository repository;
+    private final JpaArticleMapper mapper;
+
+    public JpaArticleRepositoryAdapter(final JpaArticleRepository repository, final JpaArticleMapper mapper) {
+        this.repository = repository;
+        this.mapper = mapper;
+    }
+
+    @Override
+    public void write(final ArticleDraft draft) {
+        var entity = mapper.toEntity(draft);
+        repository.save(entity);
+    }
+
+}

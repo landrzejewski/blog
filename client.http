@@ -1,3 +1,13 @@
 POST http://localhost:8080/article-drafts
 Accept: application/json
 
+###
+
+PUT http://localhost:8080/article-drafts/2f319a31-f604-4a92-9dc7-51c75b26a543
+Accept: application/json
+Content-Type: application/json
+
+{
+  "title": "test title",
+  "content": "test content"
+}
