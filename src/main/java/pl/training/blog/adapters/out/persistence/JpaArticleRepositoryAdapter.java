@@ -20,7 +20,7 @@ public class JpaArticleRepositoryAdapter implements ArticleDraftReader, ArticleD
 
     @Override
     public List<ArticleDraft> readAll() {
-        return repository.findAll()
+        return repository.findAllDrafts()
                 .stream()
                 .map(mapper::toDomain)
                 .toList();
