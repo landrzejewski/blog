@@ -1,0 +1,6 @@
+- publikacja
+- reakcje / komentarze i ocena
+- tagowanie / wyszykiwanie po tagach i kategorii
+- usuwanie
+- ranking / glosowanie
+- 
