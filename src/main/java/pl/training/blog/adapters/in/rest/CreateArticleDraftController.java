@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.training.blog.domain.CreateArticleDraftUseCase;
 import pl.training.blog.domain.model.ArticleDraft;
 
+import static pl.training.blog.adapters.in.rest.CreateArticleDraftMapper.toResponse;
+
 @RestController
 class CreateArticleDraftController {
 
@@ -17,7 +19,7 @@ class CreateArticleDraftController {
     @PostMapping("article-drafts")
     CreateArticleDraftResponse handle() {
         var articleDraft = useCase.handle();
-        return CreateArticleDraftMapper.toResponse(articleDraft);
+        return toResponse(articleDraft);
     }
 
 }

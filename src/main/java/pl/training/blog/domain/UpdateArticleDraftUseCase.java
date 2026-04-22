@@ -12,9 +12,9 @@ public class UpdateArticleDraftUseCase {
         this.writer = writer;
     }
 
-    public void handle(ArticleDraft draft) throws WriteFailedException {
+    public void handle(ArticleDraft draft) throws InvalidContentException {
         if (!draft.hasContent()) {
-            throw new WriteFailedException();
+            throw new InvalidContentException();
         }
         writer.write(draft);
     }
