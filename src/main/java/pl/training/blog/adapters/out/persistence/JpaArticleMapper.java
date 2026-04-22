@@ -2,6 +2,9 @@ package pl.training.blog.adapters.out.persistence;
 
 import pl.training.blog.common.Mapper;
 import pl.training.blog.domain.model.ArticleDraft;
+import pl.training.blog.domain.model.ArticleDraftId;
+
+import java.util.UUID;
 
 @Mapper
 public class JpaArticleMapper {
@@ -13,6 +16,18 @@ public class JpaArticleMapper {
         entity.setContent(draft.getContent());
         entity.setDraft(true);
         return entity;
+    }
+
+    public ArticleDraft toDomain(final ArticleEntity entity) {
+        return new ArticleDraft(
+                toDomain(entity.getId()),
+                entity.getTitle(),
+                entity.getContent()
+        );
+    }
+
+    private ArticleDraftId toDomain(UUID id) {
+        return new ArticleDraftId(id);
     }
 
 }

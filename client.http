@@ -11,3 +11,8 @@ Content-Type: application/json
   "title": "test title",
   "content": "test content"
 }
+
+###
+
+GET http://localhost:8080/article-drafts
+Accept: application/json
