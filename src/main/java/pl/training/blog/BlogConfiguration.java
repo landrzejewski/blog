@@ -2,7 +2,6 @@ package pl.training.blog;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import pl.training.blog.adapters.out.persistence.JpaArticleRepositoryAdapter;
 import pl.training.blog.domain.*;
 import pl.training.blog.domain.model.ArticleDraftId;
 
